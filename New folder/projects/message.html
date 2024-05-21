@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: linear-gradient(#b8dafc, white);
+            overflow: hidden;
+        }
+        #submits{
+            width: fit-content;
+            padding: 8px;
+            cursor: pointer;
+            border: 1px solid lightgrey;
+            background-color: whitesmoke;
+            border-radius: 5px;
+        }
+        #submits:hover{
+            background-color: rgba(0,0,0,0.5);
+        }
+        .container{
+            border: 1px solid black;
+            width: 95%;
+            height: 100vh;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+        .message{
+            border: 1px solid lightgray;
+            height: auto;
+            width: 500px;
+            padding: 0 20px;
+            margin: auto;
+            border-radius: 5px;
+            background-color: whitesmoke;
+            box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+        }
+        .message input{
+            width: 90%;
+            padding: 8px 0;
+            border-radius: 5px;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border: 0;
+        }
+        .head{
+            text-align: center;
+            font-weight: bold;
+            color: rgb(22, 131, 131);
+        }
+        .bord{
+            border-bottom: 2px solid lightgrey;
+            width: 100%;
+            height: 100%;
+        }
+        .message-output{
+            text-align: center;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>      
+    <div class="container">
+        <div class="message">
+            <p>
+                <h3 class="head">Pass the message</h3>
+                <p class="bord"></p>
+            </p>
+                <label for="message-input">Enter a message:</label><br>
+                <input type="text" id="message-input"><br>
+                <button type="submit" id="submits">Submit</button>
+                <div class="message-output">k</div>
+        </div>
+    </div>
+    <script>
+        const messageInput = document.querySelector('#message-input');
+        messageInput.addEventListener('keydown', (event)=>{
+            if(event.key == 'Enter'){
+                getMessage()
+            }
+        })
+        const btn = document.querySelector('#submits');
+        const getMessage = () =>{
+            const output = document.querySelector(".message-output")
+            output.innerHTML = messageInput.value;
+            // messageInput.value = ''j
+        }
+        btn.addEventListener('click', getMessage);
+    </script>
+</body>
+</html>

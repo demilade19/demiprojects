@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.attribution {
+    font-size: 11px;
+    text-align: center;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+  body{
+    font-size: 15px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .background{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+  }
+  .grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 30px;
+    row-gap: 48px;
+    width: 85%;
+  }
+  .flex{
+    display: flex;
+    grid-column: span 3;
+    gap: 30px;
+    
+  }
+  .text .h-text{
+    color: hsl(300, 43%, 22%);
+    font-weight: 900;
+    font-size: 3em;
+    width: 50%;
+  }
+  .text .para-text{
+    color: hsl(303, 10%, 53%);
+    font-size: 0.94em;
+    font-weight: 500;
+    line-height: 1.4;
+    word-spacing: 0.01em;
+    width: 48ch;
+    margin-top: 20px;
+  }
+  .ratings{
+    width: 50%;
+    align-self: flex-end;
+
+  }
+  .rate-1, .rate-2, .rate-3{
+    background-color: hsl(300, 24%, 96%);
+    padding: 20px 0;
+    margin: 0 0 18px 0;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-evenly;
+    /* width: 100%; */
+    /* height: 15%; */
+
+  }
+  .rate-1 p, .rate-2 p, .rate-3 p{
+    color: hsl(300, 43%, 22%);
+    font-size: 0.83em;
+    font-weight: 800;
+  }
+
+  .buyer{
+    background-color:  hsl(300, 43%, 22%);
+    padding: 25px 40px 0 40px;
+    border-radius: 8px;
+    width: 100%;
+    height: 220px;
+  }
+  .profile{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .profile img{
+    border-radius: 100%;
+    width: 38px;
+  }
+  .profile .name{
+    color: hsl(300, 24%, 96%);
+    font-size: 0.76em;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .profile .v-buyer{
+    color: hsl(333, 80%, 67%); 
+    font-size: 0.68em;
+    font-weight: lighter;
+    letter-spacing: 0.1em;
+  }
+  .buyer .quote{
+    color: hsl(300, 24%, 96%);
+    font-size: 0.85em;
+    font-weight: lighter;
+    word-spacing: 0.15em;
+    line-height: 1.5em;
+    margin-top: 17px;
+  }
+  .buyer-2{
+    margin-top: 1rem;
+  }
+  .buyer-3{
+    margin-top: 2rem;
+  }
+  .rate-1{
+    width: 80%;
+  }
+  .rate-2{
+    width: 85%;
+    margin-left: 1.5rem;
+  }
+  .rate-3{
+    width: 85%;
+    margin-left: 4.7rem;
+   margin-bottom: 0;
+  }

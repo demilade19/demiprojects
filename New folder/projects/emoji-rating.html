@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+		/>
+		<title>Document</title>
+		<style>
+			body {
+				margin: 0;
+				display: flex;
+				height: 100vh;
+				justify-content: center;
+				align-items: center;
+				background-color: #2e61a7;
+			}
+			.feedback-container {
+				background-color: white;
+				width: 400px;
+				height: 200px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+				border-radius: 10px;
+				position: relative;
+			}
+			.emoji-container {
+				position: absolute;
+				left: 50%;
+				top: 20%;
+				transform: translateX(-50%);
+				width: 50px;
+				height: 50px;
+				border-radius: 100%;
+				display: flex;
+				overflow: hidden;
+			}
+			.far {
+				margin: 1px;
+				transform: translateX(0);
+                /* transition:  .1s ease-in-out; */
+			}
+			.rating-container {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				bottom: 20%;
+			}
+			.fa-star {
+				color: lightgray;
+				cursor: pointer;
+			}
+			.active {
+				color: gold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="feedback-container">
+			<div class="emoji-container">
+				<i class="far fa-angry fa-3x"></i>
+				<i class="far fa-frown fa-3x"></i>
+				<i class="far fa-meh fa-3x"></i>
+				<i class="far fa-smile fa-3x"></i>
+				<i class="far fa-laugh fa-3x"></i>
+			</div>
+			<div class="rating-container">
+				<i class="fas fa-star fa-2x active"></i>
+				<i class="fas fa-star fa-2x"></i>
+				<i class="fas fa-star fa-2x"></i>
+				<i class="fas fa-star fa-2x"></i>
+				<i class="fas fa-star fa-2x"></i>
+			</div>
+		</div>
+		<script>
+			const stars = document.querySelectorAll('.fa-star');
+			const emoji = document.querySelectorAll('.far');
+            const colors =['red', 'orange', 'lightblue', 'yellow', 'green'];
+            updateRating(0)
+			stars.forEach((starEl, index) => {
+				starEl.addEventListener('click', () => {
+					updateRating(index);
+				});
+			});
+			function updateRating(index) {
+				stars.forEach((starEl, idx) => {
+					if (idx < index + 1) {
+						starEl.classList.add('active');
+					} else {
+						starEl.classList.remove('active');
+					}
+				});
+				emoji.forEach((emojiEl) => {
+					emojiEl.style.transform = `translateX(-${index * 50}px)`;
+                    emojiEl.style.color = colors[index]
+				});
+			}
+		</script>
+	</body>
+</html>

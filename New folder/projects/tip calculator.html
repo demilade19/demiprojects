@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+		/>
+		<title>Document</title>
+		<style>
+			.header {
+				text-align: center;
+				font-weight: bold;
+			}
+
+			.line {
+				border-bottom: 2px solid rgba(211, 211, 211, 0.5);
+			}
+
+			button {
+				width: 10%;
+				border-radius: 5px;
+				width: fit-content;
+				padding: 8px;
+				outline: none;
+				cursor: pointer;
+				border: 1px solid lightgrey;
+				border-radius: 5px;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				background-color: whitesmoke;
+			}
+
+			button:hover {
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+
+			#quality {
+				width: 100%;
+				padding: 8px;
+				outline: none;
+				border-radius: 5px;
+				border: 1px solid lightgrey;
+			}
+
+			body {
+				height: 100vh;
+				font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+				background: conic-gradient(
+					at 125% 50%,
+					#b78cf7,
+					#ff7c94,
+					#ffcf0d,
+					#b78cf7
+				);
+			}
+
+			.container {
+				width: 95%;
+				height: 100vh;
+				margin: auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.calculator {
+				border: 1px solid lightgray;
+				background-color: whitesmoke;
+				border-radius: 5px;
+				padding: 0 25px;
+				width: 400px;
+				margin: auto;
+				font-size: 1rem;
+				font-weight: 100;
+				box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+			}
+
+			.calculator input {
+				box-sizing: border-box;
+				width: 90%;
+				outline: none;
+				padding: 8px;
+				border-radius: 5px;
+				border: 1px solid lightgray;
+				border-top-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+			#tip-amount {
+				visibility: hidden;
+				width: 370px;
+				min-width: 250px;
+				margin: auto;
+				color: white;
+				background-color: orange;
+				bottom: 30px;
+				text-align: center;
+				border-radius: 2px;
+				padding: 16px;
+				position: fixed;
+				z-index: 1;
+			}
+
+			#tip-amount.show {
+				visibility: visible;
+				-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+				animation: fadein 0.5s, fadeout 0.5s 2.5s;
+			}
+
+			@-webkit-keyframes fadein {
+				from {
+					bottom: 0;
+					opacity: 0;
+				}
+
+				to {
+					bottom: 30px;
+					opacity: 1;
+				}
+			}
+
+			@keyframes fadein {
+				from {
+					bottom: 0;
+					opacity: 0;
+				}
+
+				to {
+					bottom: 30px;
+					opacity: 1;
+				}
+			}
+
+			@-webkit-keyframes fadeout {
+				from {
+					bottom: 30px;
+					opacity: 1;
+				}
+
+				to {
+					bottom: 0;
+					opacity: 0;
+				}
+			}
+
+			@keyframes fadeout {
+				from {
+					bottom: 30px;
+					opacity: 1;
+				}
+
+				to {
+					bottom: 0;
+					opacity: 0;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.calculator input {
+					width: 85%;
+				}
+
+				.calculator button {
+					width: 15%;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="calculator">
+				<h1 class="header">Tip Calculator</h1>
+				<p class="line"></p>
+				<br />
+				<label for="amount">Bil Amount</label>
+				<br />
+				<button><i class="fa-solid fa-dollar-sign"></i></button
+				><input type="number" id="amount" />
+				<br />
+				<br />
+				<label for="guest">Number of Guests</label>
+				<br />
+				<button><i class="fas fa-male"></i></button
+				><input type="text" id="guest" />
+				<br />
+				<br />
+				<label for="quality">Service Quality</label>
+				<br />
+				<select id="quality">
+					<option disabled selected value="0">Choose...</option>
+					<option value="0.3">30% - Outstanding</option>
+					<option value="0.2">20% - Good</option>
+					<option value="0.15">15% - It was ok</option>
+					<option value="0.1">10% - Bad</option>
+					<option value="0.05">5% - Terrible</option>
+				</select>
+				<div style="text-align: center">
+					<p class="line"></p>
+					<button id="btn">Calculator</button>
+				</div>
+				<div id="tip-amount">rg</div>
+			</div>
+		</div>
+		<script>
+			const amount = document.getElementById('amount');
+			const guest = document.getElementById('guest');
+			const quality = document.getElementById('quality');
+			const tipAmount = document.getElementById('tip-amount');
+			const button = document.getElementById('btn');
+			const calculateTip = () => {
+				const tip = ((amount.value * quality.value) / guest.value).toFixed(2);
+				amount.value = '';
+				quality.value = '';
+				guest.value = '';
+				if (tip === 'NaN') {
+					tipAmount.innerHTML = 'Tip $0 each';
+					showTipAmount();
+				} else {
+					tipAmount.innerHTML = `Tip $ ${tip} each`;
+					showTipAmount();
+				}
+			};
+			const showTipAmount = () => {
+				let x = tipAmount;
+				x.className = 'show';
+				setTimeout(() => {
+					x.className = x.className.replace('show', '');
+				}, 3000);
+			};
+			button.addEventListener('click', calculateTip);
+		</script>
+	</body>
+</html>

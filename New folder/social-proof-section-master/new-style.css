@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.attribution {
+    font-size: 11px;
+    text-align: center;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+  body{
+    font-size: 15px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .container{
+    width: 90%;
+    max-width: 1440px;
+  }
+  .col-1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    /* border: 3px solid magenta; */
+  }
+  .product-text{
+    width: 45%;
+    margin: 2em 0;
+  }
+  .product-text h1{
+    color: hsl(300, 43%, 22%);
+    font-weight: bolder;
+    font-size: 2.5rem;
+    width: 75%;
+    max-width: 1440px;
+    margin-bottom: .5em;
+  }
+  .product-text p{
+    color: hsl(303, 10%, 53%);
+    width: 70%;
+    line-height: 1.5;
+  }
+  .rate-review{
+    width: 45%;
+}
+.ratings{
+    display: flex;
+    justify-content: space-around;
+    background: hsl(300, 24%, 96%);
+    margin: 2em 0;
+    padding: 1.2em;
+    border-radius: 8px;
+    font-weight: 700;
+    
+    color: hsl(300, 43%, 22%);
+  }
+  .rate-2{
+    margin-left: 2em;
+  }
+  .rate-3{
+    margin-left: 4em;
+  }
+  .col-2{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .buyers-card{
+    background: hsl(300, 43%, 22%);
+    border-radius: 8px;
+    padding: 2.95rem;
+    height: 100%;
+  }
+  .profile{
+    display: flex;
+    margin-bottom: 1.5rem;
+    gap: 15px;
+    align-items: center;
+  }
+  img{
+    width: 40px;
+    border-radius: 50%;
+  }
+  .profile-name{
+    color: #fff;
+    font-size: .9em;
+    font-weight: bold;
+    margin: 0;
+  }
+  .text{
+    color: hsl(333, 80%, 67%);
+    font-size: .85em;
+    margin: 0;
+  }
+  .profile-text{
+    color: hsl(300, 24%, 96%);
+    line-height: 1.7;
+  }
+  .card-1{
+    width: 31%;
+  }
+  .card-2{
+    width: 31%;
+    margin-bottom: 1rem;
+  }
+  .card-3{
+    width: 31%;
+    margin-bottom: 2rem;
+  }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            padding: 8px;
+            background-color: rgb(143, 211, 234);
+            border: 0;
+            border: 5px;
+            cursor: pointer;
+            color: white;
+        }
+        .head{
+            text-transform: uppercase;
+        }
+        .container{
+            color: whitesmoke;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+        }
+        .counter{
+            border: 1px solid lightgray;
+            padding: 120px;
+            background: radial-gradient(#082a00, #33aa65da);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="counter">
+            <h1 class="head">counter</h1>
+            <h1 id="count">0</h1>
+            <div>
+                <button id="inc-btn" class="btn" type="button">Increase</button>
+                <button id="dec-btn" class="btn" type="button">Decrease</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let count = 0;
+        const btn = document.querySelector('#inc-btn')
+        const btns = document.querySelector('#dec-btn')
+        const increase =()=>{
+            count++
+            document.getElementById('count').innerHTML = count;
+        }
+        const decrease =()=>{
+            if(count > 0){
+                count--
+                document.getElementById('count').innerHTML = count;
+            }
+        }
+        btn.addEventListener('click', increase)
+        btns.addEventListener('click', decrease)
+    </script>
+</body>
+</html>

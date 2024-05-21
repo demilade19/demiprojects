@@ -1,0 +1,255 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 700;
+}
+:root{
+    --mainbgcolor: hsl(222, 26%, 31%);
+    --mainbg1color: hsl(0, 0%, 90%);
+    --mainbg2color: hsl(268, 75%, 9%);
+    --tgkcolor:hsl(223, 31%, 20%);
+    --tgk1color:hsl(0, 5%, 81%);
+    --tgks2color:hsl(268, 71%, 12%);
+    --scrcolor:hsl(224, 36%, 15%);
+    --scr1color:hsl(0, 0%, 93%);
+    --kybg:hsl(225, 21%, 49%);
+    --kybg1:hsl(185, 42%, 37%);
+    --kybg2:hsl(281, 89%, 26%);
+    --kyshd:hsl(224, 28%, 35%);
+    --kyshd1:hsl(185, 58%, 25%);
+    --kyshd2:hsl(285, 91%, 52%);
+    --kybgtg:hsl(6, 63%, 50%);
+    --kybgtg1:hsl(25, 98%, 40%);
+    --kybgtg2:hsl(176, 100%, 44%);
+    --ktshd:hsl(6, 70%, 34%);
+    --ktshd1:hsl(25, 99%, 27%);
+    --ktshd2:hsl(177, 92%, 70%);
+    --lkybg:hsl(30, 25%, 89%);
+    --lkybg1:hsl(45, 7%, 89%);
+    --lkybg2:hsl(268, 47%, 21%);
+    --lkybgshd:hsl(28, 16%, 65%);
+    --lkybgshd1:hsl(35, 11%, 61%);
+    --lkybgshd2:hsl(290, 70%, 36%);
+    --maintxtcolor:hsl(0, 0%, 100%);
+    --txtcolor:hsl(221, 14%, 31%);
+    --txtcolor1:hsl(60, 10%, 19%);
+    --txtcolor2:hsl(52, 100%, 62%);
+    --txtcolor22:hsl(198, 20%, 13%);
+
+
+
+}
+body{
+    min-height: 100vh;
+    background-color: var(--mainbgcolor);
+    font-size: 32px;
+    color: var(--maintxtcolor);
+}
+body.active1{
+    color: var(--txtcolor1);
+    background-color: var(--mainbg1color);
+}
+body.active2{
+    background-color: var(--mainbg2color);
+    color: var(--txtcolor2);
+}
+.calculator-container{
+    padding: 1em;
+}
+.logo-theme{
+    display: flex;
+    justify-content: space-between;
+    color: hsl(0, 0%, 100%);
+}
+body.active1 .logo-theme{
+    color: var(--txtcolor1);
+}
+body.active2 .logo-theme{
+    color: var(--txtcolor2);
+}
+.logo{
+    width: 60%;
+}
+.theme-box{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .8rem;
+}
+.theme-show{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.theme-num span{
+    margin-right: .5em;
+    cursor: pointer;
+}
+#theme3{
+    margin-right: 0;
+}
+.theme-toggle{
+    background-color: var(--tgkcolor);
+    width: 59px;
+    height: 22px;
+    border-radius: 15px;
+    margin: .3em 0;
+    position: relative;
+    
+}
+body.active1 .theme-toggle, body.active1 .keys-container{
+    background-color: var(--tgk1color);
+}
+body.active2 .theme-toggle, body.active2 .keys-container, body.active2 .result-box{
+    background-color: var(--tgks2color);
+}
+.theme-control{
+    margin: .24em .3em;
+    background-color: var(--kybgtg);
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+body.active1 .theme-control{
+    background-color: var(--kybgtg1);
+}
+body.active2 .theme-control{
+    background-color: var(--kybgtg2);
+}
+.result-box{
+    width: 100%;
+    border: 0;
+    outline: 0;
+    font-size: 2rem;
+    background-color: var(--scrcolor);
+    padding: .8em;
+    color: hsl(0, 0%, 100%);
+    text-align: right;
+    border-radius: 8px;
+    margin: 1em 0;
+}
+body.active1 .result-box{
+    background-color: var(--scr1color);
+    color: var(--txtcolor1);
+}
+.keys-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    background-color: var(--tgkcolor);
+    padding: 1em;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+.keys-container .keys{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.keys .btn{
+    background-color: var(--lkybg);
+    box-shadow: .5px 2.5px var(--lkybgshd);
+    color: hsl(221, 14%, 31%);
+    flex: 0 0 21%;
+    padding: 1em;
+    border-radius: 8px;
+    text-align: center;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+body.active1 .keys .btn{
+    background-color: var(--lkybg1);
+    box-shadow: .5px 2.5px var(--lkybgshd1);
+}
+body.active2 .keys .btn{
+    background-color: var(--lkybg2);
+    box-shadow: .5px 2.5px var(--lkybgshd2);
+}
+.keys .btn:hover{
+    background-color: hsl(0, 0%, 100%);
+}
+.keys .active{
+    background-color: white;
+}
+.btn-del{
+    flex: 0 0 21%;
+    padding: 1em;
+    border-radius: 8px;
+    text-align: center;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+.keys .btn-del, .reset-btn{
+    background-color: var(--kybg);
+    box-shadow: .5px 2.5px var(--kyshd);
+    color: hsl(0, 0%, 100%);
+    text-transform: uppercase;
+}
+.keys .btn-del:hover, .reset-btn:hover{
+    background-color: hsl(225, 21%, 75%);
+}
+body.active1 .keys .btn-del, body.active1 .reset-btn{
+    background-color: var(--kybg1);
+    box-shadow: .5px 2.5px var(--kyshd1);
+}
+body.active1 .keys .btn-del:hover, body.active1 .reset-btn:hover{
+    background-color: var(--kybg1);
+}
+body.active2 .keys .btn-del, body.active2 .reset-btn{
+    background-color: var(--kybg2);
+    box-shadow: .5px 2.5px var(--kyshd2);
+}
+body.active2 .keys .btn-del:hover, body.active2 .reset-btn:hover{
+    background-color: var(--kybg2);
+}
+.action-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+}
+.action-container button{
+    border: 0;
+    outline: none;
+    padding: 1em 2em;
+    text-align: center;
+    width: 120px;
+    border-radius: 8px;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+}
+
+.equals-btn{
+    background-color: var(--kybgtg);
+    box-shadow: .5px 2.5px var(--ktshd);
+}
+body.active1 .equals-btn{
+    background-color: var(--kybgtg1);
+    box-shadow: .5px 2.5px var(--ktshd1);
+}
+body.active2 .equals-btn{
+    background-color: var(--kybgtg2);
+    box-shadow: .5px 2.5px var(--ktshd2);
+}
+.equals-btn:hover{
+    background-color: hsl(6, 63%, 62%);
+
+}
+
+
+
+.attribution { font-size: 11px; text-align: center; margin-top: 3em;}
+    .attribution a { color: hsl(228, 45%, 44%); }
